@@ -8,22 +8,31 @@ const Hero = () => {
       <div className="container mx-auto max-w-6xl">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-center">
           <div className="md:col-span-6 space-y-6">
-            <div className="inline-block">
+            <div className="flex flex-col items-center md:items-start mb-6">
+              {/* School Logo */}
+              <div className="w-32 h-32 md:w-40 md:h-40 bg-white rounded-full p-2 mb-4 shadow-xl flex items-center justify-center overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                  alt="School Logo" 
+                  className="w-full h-full object-cover rounded-full"
+                />
+                {/* Replace the src above with your actual logo URL */}
+              </div>
               <span className="bg-white/10 text-white px-4 py-1.5 rounded-full text-sm font-medium animate-fade-in">
                 Welcome to Our School
               </span>
             </div>
             
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-balance animate-fade-in animate-delay-200">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-balance animate-fade-in animate-delay-200 text-center md:text-left">
               Mahant Lal Das Uchchatar Madhyamik Vidyalaya
               <span className="block text-3xl mt-2">Nardha</span>
             </h1>
             
-            <p className="text-lg text-white/90 max-w-lg animate-fade-in animate-delay-300">
+            <p className="text-lg text-white/90 max-w-lg animate-fade-in animate-delay-300 text-center md:text-left">
               Providing quality education from KG-1 to 12th grade with the best facilities.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 pt-4 animate-fade-in animate-delay-400">
+            <div className="flex flex-col sm:flex-row gap-4 pt-4 animate-fade-in animate-delay-400 justify-center md:justify-start">
               <a 
                 href="#admissions" 
                 className="inline-flex items-center justify-center px-6 py-3 bg-white text-blue-900 font-medium rounded-lg hover:bg-blue-50 transition-smooth hover-lift"

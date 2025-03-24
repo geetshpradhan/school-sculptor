@@ -38,9 +38,18 @@ const Navbar = () => {
       <div className="container mx-auto px-6 flex items-center justify-between">
         <a 
           href="#home" 
-          className="text-xl md:text-2xl font-display font-bold text-white"
+          className="flex items-center space-x-2 text-xl md:text-2xl font-display font-bold text-white"
         >
-          MAHANT LAL DAS
+          {/* Small Logo */}
+          <div className="w-8 h-8 bg-white rounded-full overflow-hidden flex-shrink-0">
+            <img 
+              src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+              alt="Logo" 
+              className="w-full h-full object-cover"
+            />
+            {/* Replace the src above with your actual logo URL */}
+          </div>
+          <span>MAHANT LAL DAS</span>
         </a>
 
         {/* Desktop Navigation */}
