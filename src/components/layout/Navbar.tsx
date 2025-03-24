@@ -5,9 +5,11 @@ import { Menu, X } from 'lucide-react';
 
 const navLinks = [
   { name: 'Home', href: '#home' },
-  { name: 'Programs', href: '#programs' },
-  { name: 'Faculty', href: '#faculty' },
-  { name: 'News', href: '#news' },
+  { name: 'About Us', href: '#about' },
+  { name: 'Courses & Fees', href: '#courses' },
+  { name: 'Admissions', href: '#admissions' },
+  { name: 'Famous Events', href: '#events' },
+  { name: 'Gallery', href: '#gallery' },
   { name: 'Contact', href: '#contact' },
 ];
 
@@ -29,25 +31,25 @@ const Navbar = () => {
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
         isScrolled 
-          ? 'bg-white/90 backdrop-blur-lg shadow-sm py-4' 
-          : 'bg-transparent py-6'
+          ? 'bg-blue-800/90 backdrop-blur-lg shadow-sm py-4' 
+          : 'bg-blue-900 py-6'
       )}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
         <a 
           href="#home" 
-          className="text-2xl font-display font-bold text-gradient"
+          className="text-xl md:text-2xl font-display font-bold text-white"
         >
-          SCULPTOR
+          MAHANT LAL DAS
         </a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-10">
+        <nav className="hidden md:flex items-center space-x-6">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="relative text-foreground/80 hover:text-foreground font-medium transition-smooth after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all hover:after:w-full"
+              className="relative text-white hover:text-white/90 font-medium transition-smooth px-3 py-2 rounded-full hover:bg-blue-700 hover:scale-105"
             >
               {link.name}
             </a>
@@ -56,7 +58,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Toggle */}
         <button 
-          className="md:hidden text-foreground p-2 transition-smooth" 
+          className="md:hidden text-white p-2 transition-smooth" 
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle mobile menu"
         >
@@ -67,7 +69,7 @@ const Navbar = () => {
       {/* Mobile Menu */}
       <div 
         className={cn(
-          "md:hidden fixed inset-x-0 transition-all duration-300 ease-in-out bg-white/95 backdrop-blur-lg border-b",
+          "md:hidden fixed inset-x-0 transition-all duration-300 ease-in-out bg-blue-800/95 backdrop-blur-lg border-b",
           mobileMenuOpen 
             ? "top-[57px] opacity-100 pointer-events-auto" 
             : "top-[-100%] opacity-0 pointer-events-none"
@@ -79,7 +81,7 @@ const Navbar = () => {
               key={link.name}
               href={link.href}
               className={cn(
-                "text-lg font-medium text-foreground/80 hover:text-foreground transition-smooth",
+                "text-lg font-medium text-white hover:text-white/90 transition-smooth px-3 py-2 text-center rounded-full hover:bg-blue-700",
                 mobileMenuOpen && "animate-fade-in"
               )}
               style={{ animationDelay: `${100 + i * 50}ms` }}

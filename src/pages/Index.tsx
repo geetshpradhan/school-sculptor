@@ -3,9 +3,11 @@ import React, { useEffect } from 'react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import Hero from '@/components/home/Hero';
-import Programs from '@/components/home/Programs';
-import Faculty from '@/components/home/Faculty';
-import News from '@/components/home/News';
+import About from '@/components/home/About';
+import Courses from '@/components/home/Courses';
+import Admissions from '@/components/home/Admissions';
+import Events from '@/components/home/Events';
+import Gallery from '@/components/home/Gallery';
 import Contact from '@/components/home/Contact';
 
 const Index = () => {
@@ -55,9 +57,11 @@ const Index = () => {
     <main className="min-h-screen bg-background text-foreground">
       <Navbar />
       <Hero />
-      <Programs />
-      <Faculty />
-      <News />
+      <About />
+      <Courses />
+      <Admissions />
+      <Events />
+      <Gallery />
       <Contact />
       <Footer />
     </main>
