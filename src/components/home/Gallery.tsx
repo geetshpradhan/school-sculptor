@@ -1,6 +1,7 @@
 
 import React from 'react';
 import AnimatedImage from '@/components/ui/AnimatedImage';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const galleryImages = [
   {
@@ -36,20 +37,25 @@ const galleryImages = [
 ];
 
 const Gallery = () => {
+  const isMobile = useIsMobile();
+  
+  // For very small screens, show fewer images
+  const displayImages = isMobile ? galleryImages.slice(0, 4) : galleryImages;
+  
   return (
-    <section id="gallery" className="py-20 px-6 bg-white">
+    <section id="gallery" className="py-16 md:py-20 px-4 md:px-6 bg-white">
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-blue-900 uppercase mb-4">Gallery</h2>
-          <div className="w-24 h-1 bg-blue-600 mx-auto"></div>
-          <p className="text-gray-600 mt-6 max-w-3xl mx-auto">
+        <div className="text-center mb-10 md:mb-12">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-blue-900 uppercase mb-4">Gallery</h2>
+          <div className="w-20 md:w-24 h-1 bg-blue-600 mx-auto"></div>
+          <p className="text-gray-600 mt-4 md:mt-6 max-w-3xl mx-auto">
             Explore moments from our school events, activities, and celebrations.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {galleryImages.map((image, index) => (
-            <div key={index} className="group relative overflow-hidden rounded-xl shadow-xl hover:shadow-2xl transition-shadow animate-on-scroll">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+          {displayImages.map((image, index) => (
+            <div key={index} className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-shadow animate-on-scroll">
               <AnimatedImage
                 src={image.src}
                 alt={image.alt}
@@ -57,14 +63,14 @@ const Gallery = () => {
                 imgClassName="group-hover:scale-110 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                <h3 className="text-white font-bold text-xl p-6">{image.title}</h3>
+                <h3 className="text-white font-bold text-lg p-4 md:p-6">{image.title}</h3>
               </div>
             </div>
           ))}
         </div>
         
-        <div className="mt-10 text-center">
-          <button className="inline-flex items-center justify-center px-6 py-3 bg-blue-900 text-white font-medium rounded-lg hover:bg-blue-800 transition-smooth">
+        <div className="mt-8 md:mt-10 text-center">
+          <button className="inline-flex items-center justify-center px-5 py-2.5 md:px-6 md:py-3 bg-blue-900 text-white font-medium rounded-lg hover:bg-blue-800 transition-smooth">
             View More Photos
           </button>
         </div>

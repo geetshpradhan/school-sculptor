@@ -1,16 +1,19 @@
 
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Hero = () => {
+  const isMobile = useIsMobile();
+  
   return (
-    <section id="home" className="pt-32 pb-20 md:pt-36 md:pb-32 px-6 bg-gradient-to-b from-blue-900 to-blue-600 text-white overflow-hidden">
+    <section id="home" className="pt-24 md:pt-32 pb-16 md:pb-20 px-4 md:px-6 bg-gradient-to-b from-blue-900 to-blue-600 text-white overflow-hidden">
       <div className="container mx-auto max-w-6xl">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-center">
           <div className="md:col-span-6 space-y-6">
             <div className="flex flex-col items-center md:items-start mb-6">
               {/* School Logo */}
-              <div className="w-32 h-32 md:w-40 md:h-40 bg-white rounded-full p-2 mb-4 shadow-xl flex items-center justify-center overflow-hidden">
+              <div className="w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 bg-white rounded-full p-2 mb-4 shadow-xl flex items-center justify-center overflow-hidden">
                 <img 
                   src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
                   alt="School Logo" 
@@ -23,12 +26,12 @@ const Hero = () => {
               </span>
             </div>
             
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-balance animate-fade-in animate-delay-200 text-center md:text-left">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight tracking-tight text-balance animate-fade-in animate-delay-200 text-center md:text-left">
               Mahant Lal Das Uchchatar Madhyamik Vidyalaya
-              <span className="block text-3xl mt-2">Nardha</span>
+              <span className="block text-2xl md:text-3xl mt-2">Nardha</span>
             </h1>
             
-            <p className="text-lg text-white/90 max-w-lg animate-fade-in animate-delay-300 text-center md:text-left">
+            <p className="text-base md:text-lg text-white/90 max-w-lg animate-fade-in animate-delay-300 text-center md:text-left">
               Providing quality education from KG-1 to 12th grade with the best facilities.
             </p>
             
@@ -50,7 +53,7 @@ const Hero = () => {
             </div>
           </div>
           
-          <div className="md:col-span-6 animate-fade-in animate-delay-500">
+          <div className="md:col-span-6 animate-fade-in animate-delay-500 mt-8 md:mt-0">
             <div className="relative">
               <div className="bg-white/30 rounded-2xl w-full aspect-[4/3] transform rotate-3 animate-pulse opacity-70"></div>
               <img 

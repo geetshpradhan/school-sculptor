@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const navLinks = [
   { name: 'Home', href: '#home' },
@@ -16,6 +17,7 @@ const navLinks = [
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,19 +28,26 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close mobile menu when switching to desktop
+  useEffect(() => {
+    if (!isMobile && mobileMenuOpen) {
+      setMobileMenuOpen(false);
+    }
+  }, [isMobile, mobileMenuOpen]);
+
   return (
     <header
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-500 w-full',
         isScrolled 
-          ? 'bg-blue-800/90 backdrop-blur-lg shadow-sm py-4' 
-          : 'bg-blue-900 py-6'
+          ? 'bg-blue-800/90 backdrop-blur-lg shadow-sm py-3' 
+          : 'bg-blue-900 py-4 md:py-6'
       )}
     >
-      <div className="container mx-auto px-6 flex items-center justify-between">
+      <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         <a 
           href="#home" 
-          className="flex items-center space-x-2 text-xl md:text-2xl font-display font-bold text-white"
+          className="flex items-center space-x-2 font-display font-bold text-white"
         >
           {/* Small Logo */}
           <div className="w-8 h-8 bg-white rounded-full overflow-hidden flex-shrink-0">
@@ -49,16 +58,16 @@ const Navbar = () => {
             />
             {/* Replace the src above with your actual logo URL */}
           </div>
-          <span>MAHANT LAL DAS</span>
+          <span className="text-base md:text-xl truncate max-w-[160px] md:max-w-none">MAHANT LAL DAS</span>
         </a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-6">
+        <nav className="hidden md:flex items-center space-x-2 lg:space-x-6">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="relative text-white hover:text-white/90 font-medium transition-smooth px-3 py-2 rounded-full hover:bg-blue-700 hover:scale-105"
+              className="relative text-white hover:text-white/90 font-medium transition-smooth px-2 py-1 lg:px-3 lg:py-2 rounded-full hover:bg-blue-700 hover:scale-105"
             >
               {link.name}
             </a>
@@ -84,13 +93,13 @@ const Navbar = () => {
             : "top-[-100%] opacity-0 pointer-events-none"
         )}
       >
-        <nav className="flex flex-col py-6 px-8 space-y-6">
+        <nav className="flex flex-col py-4 px-4 space-y-4">
           {navLinks.map((link, i) => (
             <a
               key={link.name}
               href={link.href}
               className={cn(
-                "text-lg font-medium text-white hover:text-white/90 transition-smooth px-3 py-2 text-center rounded-full hover:bg-blue-700",
+                "text-base font-medium text-white hover:text-white/90 transition-smooth px-3 py-2 text-center rounded-full hover:bg-blue-700",
                 mobileMenuOpen && "animate-fade-in"
               )}
               style={{ animationDelay: `${100 + i * 50}ms` }}
